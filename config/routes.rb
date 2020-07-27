@@ -9,6 +9,8 @@ Rails.application.routes.draw do
 
   resources :users 
   resources :workouts
-  resources :categories 
+  resources :categories do 
+     resources :workouts,only: [:new, :create, :index]
+  end 
   resources :comments
 end
