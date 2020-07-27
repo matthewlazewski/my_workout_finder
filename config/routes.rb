@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   root 'static#home'
 
+  get '/auth/facebook/callback' => 'sessions#omniauth'
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
   get '/logout' => 'sessions#destroy'
@@ -8,6 +9,6 @@ Rails.application.routes.draw do
 
   resources :users 
   resources :workouts
-  resources :types 
+  resources :categories 
   resources :comments
 end
