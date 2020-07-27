@@ -1,4 +1,8 @@
-class WorkoutController < ApplicationController 
+require 'pry'
+
+class WorkoutsController < ApplicationController 
+    #before_action :find_workout 
+    
     def index 
         if params[:category_id] && @category = Category.find_by_id(params[:category_id])
             @workout = @category.workouts 
@@ -9,7 +13,7 @@ class WorkoutController < ApplicationController
 
     def new
         if params[:category_id] && @category = Category.find_by_id(params[:category_id])
-            @workout = @cateogry.workouts.build
+            @workout = @category.workouts.build
         else
             @workout = Workout.new      
         end
@@ -17,7 +21,9 @@ class WorkoutController < ApplicationController
 
     def create
         @workout = current_user.workouts.build(workout_params)
+        binding.pry
         if @workout.valid?
+            @workout.save
             redirect_to workout_path(@workout)
         else  
             @category = Category.find_by_id(params[:category_id]) if params[:category_id]
@@ -45,7 +51,11 @@ class WorkoutController < ApplicationController
 
     private
     def workout_params
-        parmas.require(:workout).permit(:name, :intensity, :duration)
+        params.require(:workout).permit(:name, :intensity, :duration, :category_id, category_attributes: [:name])
+    end
+
+    def find_workout
+        @workout = Workout.find(params[:id])
     end
 
 end

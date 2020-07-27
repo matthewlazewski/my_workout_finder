@@ -1,0 +1,10 @@
+<%= form_for(@workout) do |f| %>
+    <%= f.label :name%>
+    <%= f.text_field :name%><br>
+    <%= f.label :intensity %>
+    <%= f.number_field :intensity%><br>
+    <%= f.label :duration%>
+    <%= f.number_field :duration%>
+    <br>
+    <%= f.submit %>
+<% end %>

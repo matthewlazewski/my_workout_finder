@@ -7,6 +7,13 @@
     <p><strong>Weight:</strong>  <%= @user.weight %> lbs</p>
 </div>
 
+<div class="edit-button">
+    <% if @user == current_user %>
+        <h5><%= link_to "Edit Profile", edit_user_path(@user) %>
+    <% end %>
+</div>
+
 <span class="workout-type-button">
     <h3><%= link_to "Browse Workout Types", categories_path %></h3>
+    <h3><%= link_to "Browse All Workouts", workouts_path %></h3>
 </span>

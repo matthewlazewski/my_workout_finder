@@ -1,0 +1,10 @@
+<h1><%= @category.name %></h1>
+
+<ul>
+    <%= @category.workouts.each do |w| %>
+    <li><%= link_to w.name, workout_path(w) %></li>
+    <% end %>
+</ul>
+
+<h2>Add a new workout to this category?</h2>
+<%= link_to "Create a New Workout", new_category_workout_path(@category) %>
