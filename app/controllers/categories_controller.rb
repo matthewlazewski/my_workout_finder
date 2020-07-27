@@ -1,10 +1,10 @@
 class CategoriesController < ApplicationController
     def index 
-        @categories = Categories.all 
+        @categories = Category.all 
     end
 
     def new 
-        @cateogry = Category.new 
+        @category = Category.new 
     end
 
     def create

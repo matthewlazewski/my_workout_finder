@@ -30,7 +30,8 @@ class WorkoutController < ApplicationController
     end
 
     def update 
-        if @workout.update(workout_params)
+        if @workout.user == current_user
+            @workout.update(workout_params)
             redirect_to workout_path(@workout)
         else 
             render :edit 

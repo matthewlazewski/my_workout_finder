@@ -1,0 +1,16 @@
+<h1>Add A New Category</h1>
+
+<%= form_for(@category) do |f| %>
+    <%= render partial: 'form', locals: {f: f} %>
+    <h3>Would you like to add a workout to this category? (optional)</h3>
+    <%= f.fields_for :workouts do |s| %>
+        <%= s.label :name, "Name:" %>
+        <%= s.text_field :name %><br>
+        <%= s.label :intensity, "Intensity (1-5):"%>
+        <%= s.number_field :intensity %><br>
+        <%= s.label :duration, "Intensity (minutes):"%>
+        <%= s.number_field :duration %><br>
+    <% end %>
+    <br>
+    <%= f.submit "Save" %>
+<% end %>
