@@ -11,7 +11,7 @@ class CommentsController < ApplicationController
     end
 
     def create
-        @comment = @workout.comments.build(comment_params)
+        @comment = Comment.new(comment_params)
         @comment.save
         redirect_to workout_comment_path(@workout)
     end

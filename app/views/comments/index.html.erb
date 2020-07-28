@@ -1,6 +1,7 @@
 <h1><%= @workout.name %></h1>
 <ul> 
     <% @workout.comments.each do |comment| %>
+    <li> <%= comment.rating %> </li>
     <li> <%= comment.content %> </li>
     <% end %>
 </ul>
