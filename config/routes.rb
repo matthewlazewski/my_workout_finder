@@ -9,6 +9,7 @@ Rails.application.routes.draw do
 
   resources :users 
   resources :workouts
+    resources :comments, only: [:create, :index, :destroy]
   resources :categories do 
      resources :workouts, only: [:new, :create, :index]
   end 

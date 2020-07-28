@@ -1,6 +1,24 @@
-<h1> <%= @workout.name %> </h1>
-<h3> <%= @workout.category.name %> </h3>
 
+<span class = "workout-attributes">
+    <h1> <%= @workout.name %> </h1>
+    <h3>Category: <%= @workout.category.name %> </h3>
+    <p>Duration: <%= @workout.duration %> Minutes </p>
+    <p>Intensity: <%= @workout.intensity %> </p>
+</span>
+
+<%= link_to "Browse Category", category_path(@workout.category) %>
+
+<span class = "comments-section">
+    <ul>
+    <%= @workout.comments.each do |comment| %>
+        <li><%= comment.user %> - <%= comment.content %></li>
+    <% end %>
+</span>
+
+    <br><br>
+<h3>What did you think of this workout?</h3>
+<%= render partial: 'comment_fields' %>
+    <br>
 <% if @workout.user == current_user%>
     <%= link_to "Edit Workout", edit_workout_path(@workout)%>
     <%= link_to "Delete Workout", workout_path(@workout), method: 'delete'%>

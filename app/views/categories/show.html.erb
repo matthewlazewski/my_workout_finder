@@ -1,7 +1,7 @@
 <h1><%= @category.name %></h1>
 
 <ul>
-    <%= @category.workouts.each do |w| %>
+    <% @category.workouts.each do |w| %>
     <li><%= link_to w.name, workout_path(w) %></li>
     <% end %>
 </ul>

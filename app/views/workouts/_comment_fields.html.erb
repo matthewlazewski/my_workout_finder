@@ -1,0 +1,8 @@
+<%= form_for :comments do |f| %>
+    <%= f.label :rating %>
+    <%= f.number_field :rating %><br>
+    <%= f.label :content %>
+    <%= f.text_field :content %>
+    <br>
+    <%= f.submit "Leave Comment"%>
+<% end %>
