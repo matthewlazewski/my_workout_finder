@@ -1,4 +1,6 @@
-<%= form_for :comments do |f| %>
+<%= form_for @workout.comments.build do |f| %>
+    <%= f.hidden_field :workout_id %>
+    <%= f.hiddent_field :user_id %>
     <%= f.label :rating %>
     <%= f.number_field :rating %><br>
     <%= f.label :content %>

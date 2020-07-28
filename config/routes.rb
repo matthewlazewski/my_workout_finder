@@ -7,11 +7,17 @@ Rails.application.routes.draw do
   get '/logout' => 'sessions#destroy'
   delete '/logout' => 'sessions#destroy'
 
-  resources :users 
-  resources :workouts
+  resources :users
+
+  resources :workouts do 
     resources :comments, only: [:create, :index, :destroy]
-  resources :categories do 
-     resources :workouts, only: [:new, :create, :index]
   end 
-  resources :comments
+
+  resources :categories do 
+    resources :workouts, only: [:new, :create, :index]
+  end 
+
+  # resources :comments do 
+  #   resources :comments
+  # end
 end

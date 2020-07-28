@@ -16,9 +16,26 @@
 </span>
 
     <br><br>
+
+
 <h3>What did you think of this workout?</h3>
-<%= render partial: 'comment_fields' %>
+    
+    
+    <%= form_for [@workout, @comment] do |f| %>
+        <%= f.hidden_field :workout_id %>
+        <%= f.hidden_field :user_id %>
+        <%= f.label :rating %>
+        <%= f.number_field :rating %><br>
+        <%= f.label :content %>
+        <%= f.text_field :content %>
+        <br>
+        <%= f.submit "Leave Comment"%>
+    <% end %>
+    
+    
     <br>
+
+
 <% if @workout.user == current_user%>
     <%= link_to "Edit Workout", edit_workout_path(@workout)%>
     <%= link_to "Delete Workout", workout_path(@workout), method: 'delete'%>
