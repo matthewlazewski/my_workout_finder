@@ -21,7 +21,6 @@ class WorkoutsController < ApplicationController
 
     def create
         @workout = current_user.workouts.build(workout_params)
-        binding.pry
         if @workout.valid?
             @workout.save
             redirect_to workout_path(@workout)
@@ -32,10 +31,11 @@ class WorkoutsController < ApplicationController
     end
 
     def edit 
-
+        @workout = Workout.find_by(id: params[:id])
     end
 
     def update 
+        @workout = Workout.find_by(id: params[:id])
         if @workout.user == current_user
             @workout.update(workout_params)
             redirect_to workout_path(@workout)
@@ -47,6 +47,10 @@ class WorkoutsController < ApplicationController
     def destroy
         @workout.destroy
         redirect_to workouts_path
+    end
+
+    def show
+        @workout = Workout.find_by(id: params[:id])
     end
 
     private

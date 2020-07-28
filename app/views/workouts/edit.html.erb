@@ -1,5 +1,5 @@
-<%= form_for([@category, @workout]) do |f| %>
-    <%= display_category(f) %>
+<h1>Edit Workout</h1>
+<%= form_with(model: @workout, class: "edit_workout", local: true) do |f| %>
     <%= f.label :name%>
     <%= f.text_field :name%><br>
     <%= f.label :intensity %>

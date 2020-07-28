@@ -1,0 +1,7 @@
+<h1> <%= @workout.name %> </h1>
+<h3> <%= @workout.category.name %> </h3>
+
+<% if @workout.user == current_user%>
+    <%= link_to "Edit Workout", edit_workout_path(@workout)%>
+    <%= link_to "Delete Workout", workout_path(@workout), method: 'delete'%>
+<% end %>

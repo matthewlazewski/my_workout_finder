@@ -6,7 +6,7 @@ class Workout < ActiveRecord::Base
 
     def category_attributes=(attr)
         if !attr[:name].blank?
-            self.category = category.find_or_create_by(name: attr[:name])
+            self.category = Category.find_or_create_by(name: attr[:name])
         end
     end
 end
