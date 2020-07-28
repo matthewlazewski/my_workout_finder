@@ -1,0 +1,9 @@
+<%= form_for [@comment.workout,@comment] do |f| %>
+        <%= f.hidden_field :workout_id %>
+        <%= f.label :rating %>
+        <%= f.number_field :rating %><br>
+        <%= f.label :content %>
+        <%= f.text_field :content %>
+        <br>
+        <%= f.submit "Leave Comment"%>
+<% end %>

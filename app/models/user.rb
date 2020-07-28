@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
     has_many :workouts
     has_many :categories, through: :workouts
     has_many :comments
-    has_many :commented_workouts, through: :comments
+    has_many :commented_workouts, through: :comments, source: :post
 
     validates :email, uniqueness: true 
     validates :username, :email, presence: true 

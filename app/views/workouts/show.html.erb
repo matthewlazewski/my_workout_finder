@@ -10,8 +10,8 @@
 
 <span class = "comments-section">
     <ul>
-    <%= @workout.comments.each do |comment| %>
-        <li><%= comment.user %> - <%= comment.content %></li>
+    <% @workout.comments.each do |comment| %>
+        <li><%= comment.user.username %> - <%= comment.rating %>. <%= comment.content %></li>
     <% end %>
 </span>
 
@@ -20,17 +20,8 @@
 
 <h3>What did you think of this workout?</h3>
     
-    
-    <%= form_for [@workout, @comment] do |f| %>
-        <%= f.hidden_field :workout_id %>
-        <%= f.hidden_field :user_id %>
-        <%= f.label :rating %>
-        <%= f.number_field :rating %><br>
-        <%= f.label :content %>
-        <%= f.text_field :content %>
-        <br>
-        <%= f.submit "Leave Comment"%>
-    <% end %>
+<%= link_to "Leave a Comment", new_workout_comment_path(@workout) %>  
+
     
     
     <br>
