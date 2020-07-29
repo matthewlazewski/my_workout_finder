@@ -3,7 +3,7 @@
 <%= form_for(@category) do |f| %>
     <%= render partial: 'form', locals: {f: f} %>
     <h3>Would you like to add a workout to this category? (optional)</h3>
-    <%= f.fields_for :workout do |s| %>
+    <%= f.fields_for [@category.workouts, @workout] do |s| %>
         <%= s.label :name, "Name:" %>
         <%= s.text_field :name %><br>
         <%= s.label :intensity, "Intensity (1-5):"%>

@@ -4,7 +4,8 @@
     <title>Myworkoutfinder</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu+Condensed&display=swap" rel="stylesheet">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
@@ -13,9 +14,9 @@
     <div class="wrapper" role="navigation">
       <nav>
         <div class="container">
-          <a class="navbar-brand" href="<%= root_url %>"/>Home</a>
+          <a class="navbar" href="<%= root_url %>"/>Home</a>
           <% if !current_user %>
-            <a class="navbar-brand" href="<%= new_user_path %>"/>Sign Up</a>
+            <a class="navbar" href="<%= new_user_path %>"/>Sign Up</a>
             <%= link_to "Log in", login_path, class:"navbar-brand" %>
           <% end %>
           <% if current_user %>

@@ -1,16 +1,18 @@
 class CategoriesController < ApplicationController
+    before_action :logged_in?
+
     def index 
         @categories = Category.all 
     end
 
     def new 
         @category = Category.new
+        @workout = Workout.new 
     end 
 
     def create
         @category = Category.new(category_params)
         if @category.save 
-            @category.workouts.build 
             redirect_to category_path(@category)
         else 
             @category.workouts.build 

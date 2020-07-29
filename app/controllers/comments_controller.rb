@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController 
-
+    before_action :logged_in?
     
     def index 
         @workout = Workout.find_by(id: params[:workout_id])

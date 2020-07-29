@@ -1,12 +1,24 @@
+html, body {
+    height: 100%;
+    weight: 100%;
+    font-family: 'Roboto Slab', serif; 
+}
+
+
 body {
     background-image: url("../images/risen-wang-20jX9b35r_M-unsplash.jpg");
     background-attachment: fixed;
     background-size: cover;
+    color: #333; 
     align-content: center;
     width: 100%;
     margin: 0 auto;
     text-align: center;
     display: inline-block;
+}
+
+h1 {
+    text-decoration: underline;
 }
 
 
@@ -17,7 +29,7 @@ body {
     box-shadow: 0 0 10px rgba(0,0,0,.3);
     margin: 25px auto;
     padding: 2.25%; 
-    width: 100%;
+    width: 80%;
     text-align: center; 
 }
 
@@ -33,13 +45,20 @@ body {
 .wrapper nav a {
     text-decoration: none;
     transition: 0.5s;
+    width: 100%;
+    align-items: center;
+    justify-content: space-evenly;
+
 }
 
 ul {
     text-align: center;
     display: inline;
     list-style: none;
+    font-size: 18px;
 }
+
+
 
 
 
