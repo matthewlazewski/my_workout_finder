@@ -6,7 +6,7 @@ class Workout < ActiveRecord::Base
 
     accepts_nested_attributes_for :comments 
 
-    scope :short_workouts, ->(duration) {where('duration < ?', price)}
+    scope :ordered_by_duration, -> {order(duration: :asc)}
 
     def category_attributes=(attr)
         if !attr[:name].blank?

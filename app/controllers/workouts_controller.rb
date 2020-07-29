@@ -5,9 +5,9 @@ class WorkoutsController < ApplicationController
     
     def index 
         if params[:category_id] && @category = Category.find_by_id(params[:category_id])
-            @workout = @category.workouts 
+            @workout = @category.workouts.ordered_by_duration 
         else 
-            @workouts = Workout.all 
+            @workouts = Workout.all.ordered_by_duration
         end
     end
 

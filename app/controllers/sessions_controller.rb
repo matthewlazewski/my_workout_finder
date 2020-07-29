@@ -5,11 +5,13 @@ class SessionsController < ApplicationController
     end
 
     def create
-        if @user = User.find_by(name: params[:user][:username])
-          session[:user_id] = @user.id
-          redirect_to user_path(@user)
+        @user = User.find_by(username: params[:username])
+        if @user && @user.authenticate(params[:password])
+            session[:user_id] = @user.id
+            redirect_to user_path(@user)
         else
-          render 'new'
+            flash[:message] = "Invalid username or password. Please try again" 
+            redirect_to root_path, alert: "Invalid username or password. Please try again."
         end
     end
 

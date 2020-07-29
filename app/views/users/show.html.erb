@@ -5,6 +5,10 @@
     <p><strong>Email:</strong> <%= @user.email %></p>
     <p><strong>Height:</strong> <%= @user.height %> inches</p>
     <p><strong>Weight:</strong>  <%= @user.weight %> lbs</p>
+    <p><strong><%= @user.username%>'s Workouts: </strong> 
+    <% @user.workouts.each do |workout| %>
+        <%= link_to workout.name, workout_path(workout) %>
+    <% end %>
 </div>
 
 <div class="edit-button">

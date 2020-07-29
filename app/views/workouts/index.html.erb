@@ -1,7 +1,7 @@
 <h1>Workout Page</h1>
 <ul>
     <% @workouts.each do |w| %>
-        <li><%= link_to w.name, workout_path(w) %></li>
+        <li><%= link_to w.name, workout_path(w) %> Intensity: <%= w.intensity %> Time: <%= w.duration%> minutes</li>
     <% end %>
 </ul>
 
