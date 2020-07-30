@@ -1,7 +1,7 @@
 require 'pry'
 
 class WorkoutsController < ApplicationController 
-    #before_action :find_workout 
+    before_action :find_workout, only: [:edit, :update, :show, :destroy]
     
     def index 
         if params[:category_id] && @category = Category.find_by_id(params[:category_id])

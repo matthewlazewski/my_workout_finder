@@ -2,8 +2,12 @@ class CommentsController < ApplicationController
     before_action :logged_in?
     
     def index 
-        @user = User.find_by(id: params[:id])
-        @comments = Comment.all 
+        @user = User.find_by(id: params[:user_id])
+        if @user 
+            @comments = @user.comments 
+        else 
+            @comments = Comment.all
+        end 
     end
 
     def new 

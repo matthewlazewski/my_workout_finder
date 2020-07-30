@@ -10,11 +10,10 @@ class UsersController < ApplicationController
     def create
         @user = User.create(user_params)
         if @user.valid?
-            session[:user_id] = user.id
-            redirect_to user_path(user)
+            session[:user_id] = @user.id
+            redirect_to user_path(@user)
         else 
-            flash[:message] = "Please fill in all fields"
-            redirect_to root_path
+            render :new
         end 
     end
 

@@ -10,11 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_27_013207) do
+ActiveRecord::Schema.define(version: 2020_07_30_191218) do
 
   create_table "categories", force: :cascade do |t|
     t.string "name"
-    t.string "description"
   end
 
   create_table "comments", force: :cascade do |t|
@@ -22,11 +21,6 @@ ActiveRecord::Schema.define(version: 2020_07_27_013207) do
     t.text "content"
     t.integer "user_id"
     t.integer "workout_id"
-  end
-
-  create_table "comments_workouts", id: false, force: :cascade do |t|
-    t.integer "comment_id", null: false
-    t.integer "workout_id", null: false
   end
 
   create_table "users", force: :cascade do |t|

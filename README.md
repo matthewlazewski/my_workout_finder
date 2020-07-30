@@ -1,24 +1,19 @@
-# README
+# MyWorkoutFinder
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Introduction: 
+The goal of this application is to provide a one stop shop for all things fitness. Users can browse workouts according to category or create their own. They can also rate the workouts after they have tried them.
 
-Things you may want to cover:
+## Built With 
+Project is created with: 
+* [Rails](https://github.com/rails/rails)- web-application framework to create databases according to the MVC pattern
+* [ActiveRecord](https://github.com/rails/rails/tree/master/activerecord)- Database management
 
-* Ruby version
+## Setup 
+To run this project, install locally using these steps:
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+```
+$ git clone https://https://github.com/matthewlazewski/myworkoutfinder
+$ cd myworkoutfinder
+$ bundle install 
+$ rails s 
+```.
