@@ -1,17 +1,6 @@
-<%= form_for @user do |f| %>
-    <% if @user.errors.any? %>
-        <div id="error">
-        <h2>
-            <%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:
-        </h2>
+<% render partial: '/shared/errors', locals: {obj: @user} %>
 
-        <ul>
-        <% @user.errors.full_messages.each do |message| %>
-            <li><%= message %></li>
-        <% end %>
-        </ul>
-        </div>
-    <% end %>
+<%= form_for @user do |f| %>
 
     <div class = "user-form">
         <%= f.label :username %>

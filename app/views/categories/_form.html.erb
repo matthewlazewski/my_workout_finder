@@ -1,2 +1,7 @@
-<%= f.label :name, "Category Name" %>
-<%= f.text_field :name%><br>
+<%= render partial: 'shared/errors', locals: {obj:@category} %>
+
+<%= form_for(@category) do |f| %>
+    <%= f.label :name, "Category Name" %>
+    <%= f.text_field :name%><br>
+    <%= f.submit "Save" %>
+<% end %>

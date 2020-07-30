@@ -1,0 +1,10 @@
+
+
+<h1>Edit Comment</h1>
+<%= form_with(model: @comment, class: "edit_comment", local: true) do |f| %>
+    <%= f.label :rating %>
+    <%= f.number_field :rating %><br>
+    <%= f.label :content  %>
+    <%= f.text_field :content %><br>
+    <%= f.submit %>
+<% end %>

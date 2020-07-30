@@ -1,0 +1,11 @@
+
+<h1> <%= @user.username %>'s Comments </h1>
+
+
+<ul>
+<% @user.comments.each do |comment| %>
+    <li>Workout: <%= comment.workout.name %></li>
+    <li>Rating: <%= comment.rating %></li>
+    <li>Comment: <%= comment.content %></li>
+<% end %>
+</ul>

@@ -1,3 +1,5 @@
+<% render partial: '/shared/errors', locals: {obj: @workout} %>
+
 <h1>Edit Workout</h1>
 <%= form_with(model: @workout, class: "edit_workout", local: true) do |f| %>
     <%= f.label :name%>

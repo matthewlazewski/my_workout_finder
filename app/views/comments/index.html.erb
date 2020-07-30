@@ -1,7 +1,14 @@
-<h1><%= @workout.name %></h1>
-<ul> 
-    <% @workout.comments.each do |comment| %>
-    <li> <%= comment.rating %> </li>
-    <li> <%= comment.content %> </li>
+<h1>All Comments</h1>
+<ul>
+    <% @comments.each do |comment| %>
+    <li> User: <%= comment.user.username %>
+    <li> Workout: <%= comment.workout.name %> </li>
+    <li> Rating: <%= comment.rating %> </li>
+    <li> Comment: <%= comment.content %> </li>
+    <% if comment.user == current_user%>
+        <li><%= link_to "Edit Comment", edit_comment_path(comment)%></li>
+        <li><%= link_to "Delete Comment", comment_path(comment), method: 'delete'%></li>
+    <% end %>
+    <br><br>
     <% end %>
 </ul>

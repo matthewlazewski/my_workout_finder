@@ -13,9 +13,9 @@ class CategoriesController < ApplicationController
     def create
         @category = Category.new(category_params)
         if @category.save 
+            @category.workouts.build 
             redirect_to category_path(@category)
         else 
-            @category.workouts.build 
             render :new 
         end
     end
