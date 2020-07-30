@@ -9,9 +9,10 @@
 <%= link_to "Browse Category", category_path(@workout.category) %>
 <br>
 <span class = "comments-section">
+    <h3>Comments:</h3>
     <ul>
     <% @workout.comments.each do |comment| %>
-        <li><%= comment.user.username %> - <%= comment.rating %>. <%= comment.content %></li>
+        <li>By: <%= comment.user.username %> - Rating: <%= comment.rating %>. <%= comment.content %></li>
     <% end %>
 </span>
 
