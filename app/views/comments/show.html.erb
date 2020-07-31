@@ -7,5 +7,9 @@
     <li>Workout: <%= comment.workout.name %></li>
     <li>Rating: <%= comment.rating %></li>
     <li>Comment: <%= comment.content %></li>
+     <% if comment.user == current_user%>
+        <li><%= link_to "Edit Comment", edit_comment_path(comment)%></li>
+        <li><%= link_to "Delete Comment", comment_path(comment), method: 'delete'%></li>
+    <% end %>
 <% end %>
 </ul>

@@ -2,12 +2,13 @@ class CommentsController < ApplicationController
     before_action :logged_in?
     
     def index 
-        @user = User.find_by(id: params[:user_id])
-        if @user 
-            @comments = @user.comments 
-        else 
-            @comments = Comment.all
-        end 
+        # @user = User.find_by(id: params[:user_id])
+        # if @user 
+        #     @comments = @user.comments 
+        # else 
+        #     @comments = Comment.all
+        # end 
+        @comments = Comment.all 
     end
 
     def new 
@@ -32,8 +33,8 @@ class CommentsController < ApplicationController
     def update 
         @comment = Comment.find_by(id: params[:id])
         if @comment.user == current_user
-            @workout.comment.update(comment_params)
-            redirect_to comment_path(@comment)
+            @comment.update(comment_params)
+            redirect_to user_comments_path(current_user)
         else 
             render :edit 
         end
@@ -41,11 +42,11 @@ class CommentsController < ApplicationController
 
     def destroy
         @comment = Comment.find_by(id: params[:id])
-
-        if @comment.user.id == current_user.id 
-            @comment.destroy 
+        if @comment.user == current_user
+            @comment.destroy
+            redirect_to user_comments_path(current_user)
         else 
-            redirect_to workouts_path 
+            redirect_to root_path 
         end
     end
 

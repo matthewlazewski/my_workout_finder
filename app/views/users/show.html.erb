@@ -22,7 +22,7 @@
 
 <span class="workout-type-button">
     <h3><%= link_to "See All #{@user.username} Comments", user_comments_path(@user) %></h3>
-    <h3><%= link_to "See All Comments", comments_path %></h3>
+    <h3><%= link_to "See All Comments", '/comments' %></h3>
     <h3><%= link_to "Browse Workout Types", categories_path %></h3>
     <h3><%= link_to "Browse All Workouts", workouts_path %></h3>
 </span>

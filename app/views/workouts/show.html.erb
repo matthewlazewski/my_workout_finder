@@ -13,6 +13,10 @@
     <ul>
     <% @workout.comments.each do |comment| %>
         <li>By: <%= comment.user.username %> - Rating: <%= comment.rating %>. <%= comment.content %></li>
+        <% if comment.user == current_user%>
+            <li><%= link_to "Edit Comment", edit_comment_path(comment)%></li>
+            <li><%= link_to "Delete Comment", workout_path(comment.workout), method: 'delete'%></li>
+        <% end %>
     <% end %>
 </span>
 
@@ -26,7 +30,7 @@
     
     
     <br>
-
+    <br>
 
 <% if @workout.user == current_user%>
     <%= link_to "Edit Workout", edit_workout_path(@workout)%>

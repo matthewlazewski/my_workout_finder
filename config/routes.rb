@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   post '/login' => 'sessions#create'
   get '/logout' => 'sessions#destroy'
   delete '/logout' => 'sessions#destroy'
+  get '/users/:id/comments' => 'comments#show'
+  delete '/users/:id/comments/:id' => 'comments#destroy'
 
   resources :comments 
 
