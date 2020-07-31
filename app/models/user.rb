@@ -6,9 +6,8 @@ class User < ActiveRecord::Base
     has_many :comments
 
 
-    validates :email, :password, uniqueness: true 
-    validates :username, :email, :password, :height, :weight, presence: true 
-
+    validates :email, uniqueness: true 
+    validates :username, :email, presence: true 
 
     def self.create_from_omniauth(auth)
         User.find_or_create_by(uid: auth['uid'], provider: auth['provider']) do |u|

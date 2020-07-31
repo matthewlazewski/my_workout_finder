@@ -4,4 +4,5 @@ class Category < ActiveRecord::Base
     accepts_nested_attributes_for :workouts 
 
     validates :name, presence: true 
+    validates :name, uniqueness: true 
 end

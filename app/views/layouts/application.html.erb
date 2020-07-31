@@ -16,8 +16,7 @@
         <div class="container">
           
           <% if !current_user %>
-            <a class="navbar" href="<%= new_user_path %>"/>Sign Up</a>
-            <%= link_to "Log in", login_path, class:"navbar-brand" %>
+            <%= link_to "Home", root_path, class:"navbar-brand" %>
           <% end %>
           <% if current_user %>
             <%= link_to "Home", user_path(current_user) %>
