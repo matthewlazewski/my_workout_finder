@@ -4,6 +4,12 @@ class UsersController < ApplicationController
     def index 
         @users = User.all 
     end
+
+    def intense
+        @users = User.all.most_workouts
+        binding.pry
+        #@sorted = users.sort_by{ |user| user.workouts.count }.reverse 
+    end
     
     def new
         @user = User.new

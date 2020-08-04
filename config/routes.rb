@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   delete '/logout' => 'sessions#destroy'
   get '/users/:id/comments' => 'comments#show'
   delete '/users/:id/comments/:id' => 'comments#destroy'
+  get '/users/intense' => 'users#intense'
 
   resources :comments 
 

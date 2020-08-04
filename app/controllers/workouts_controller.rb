@@ -12,6 +12,7 @@ class WorkoutsController < ApplicationController
         end
     end
 
+
     def new
         if params[:category_id] && @category = Category.find_by_id(params[:category_id])
             @workout = @category.workouts.build
