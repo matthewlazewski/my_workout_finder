@@ -5,8 +5,6 @@ class User < ActiveRecord::Base
     has_many :categories, through: :workouts
     has_many :comments
 
-
- 
     validates :username, :email, presence: true 
 
     def self.create_from_omniauth(auth)
