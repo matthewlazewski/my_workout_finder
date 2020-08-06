@@ -7,10 +7,7 @@ class User < ActiveRecord::Base
 
     validates :username, :email, presence: true 
 
-    scope :most_workouts, -> {joins(:workouts).group("user_id").count.order("ASC")}
-
-
-    #users.sort_by { |user| user.workouts.count }
+    scope :most_workouts, -> {joins(:workouts).group("user_id").order("count(*) DESC")}
 
     def self.create_from_omniauth(auth)
         User.find_or_create_by(uid: auth['uid'], provider: auth['provider']) do |u|
