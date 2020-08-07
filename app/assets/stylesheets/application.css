@@ -58,7 +58,9 @@ ul {
     font-size: 18px;
 }
 
-
+#error_explanation {
+    color: black;
+}
 
 
 
